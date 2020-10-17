@@ -1,0 +1,114 @@
+@import url(reset.css);  
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat:wght@400;700&display=swap'); 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css");
+
+*{
+    box-sizing: border-box;
+}
+:root{
+    --color-principal: #f78f07;
+    --color-secundario: #21242e;
+    --fuentePrincipal: 'Montserrat', sans-serif;
+    --anchoMaximo: 800px;
+    --gris: rgb(189, 188, 188);
+}
+body{
+    font-family: var(--fuentePrincipal);
+    font-size: 1em;
+}
+img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.container{
+    max-width: var(--anchoMaximo);
+    margin: 0 auto;
+}
+.wrapper{
+    display: flex;
+}
+
+/* Inicio header */
+header img{
+    width: 42px;
+}
+header form{
+    display: flex;
+    background-color: var(--gris);
+    padding: 20px;
+    height: 80px;
+    margin-top: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+header .add form #intTarea, #intPriority{
+    margin-right: 4px;
+}
+header .add form label{
+    padding: 0 10px;
+    line-height: 42px;
+    font-weight: 700;
+} 
+header .add div{
+    background-color: orangered;
+    line-height: 25px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    border: 15px solid var(--gris);
+    border-top: 5px;
+}
+header form #btnSave{
+    cursor: pointer;
+}
+header .search{
+    display: flex;
+    background-color: var(--color-secundario);
+    padding: 15px;
+    height: 60px;
+}
+header .search #searchPriority{
+    margin-right: 5px;
+}
+/* FIN header */
+
+/* Inicio main */
+main article.tasks{
+    display: flex;
+    flex-wrap: nowrap;
+    line-height: 50px;
+    border-bottom: 2px solid var(--color-secundario);
+}
+main article h3.task {
+    background-color: lightblue;
+    width: 75%;
+}
+main article .remove{
+    background-color: orangered;
+    color: white;
+    width: 25%;
+    font-weight: 700;
+    text-align:center;
+    cursor: pointer;
+}
+main article .remove:hover{
+    width: 35%;
+    padding-left: 40px;
+}
+/* FIN main */
+
+/* Inicio footer */
+footer{
+    background-color: var(--color-secundario);
+    height: 50px;
+    border-top: 3px solid var(--gris);
+    /* font-weight: 700; */
+    font-size: 1.2em;
+    line-height: 45px;
+    color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-left: 20px;
+}
+/* FIN footer */
