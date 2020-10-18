@@ -71,10 +71,15 @@ header .search{
 header .search #searchPriority{
     margin-right: 5px;
 }
+header .search #numerotareas{
+    color: white;
+    padding: 8px;
+    margin-left: 30px;
+}
 /* FIN header */
 
 /* Inicio main */
-main article.tasks{
+main article{
     display: flex;
     flex-wrap: nowrap;
     line-height: 50px;
@@ -83,6 +88,8 @@ main article.tasks{
 main article h3.task {
     background-color: lightblue;
     width: 75%;
+    padding-left: 15px;
+    font-size: 1.2em; 
 }
 main article .remove{
     background-color: orangered;

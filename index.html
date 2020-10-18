@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practica JS</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="./js/registro.js"></script>
 </head>
 
 <body>
@@ -16,12 +17,13 @@
                     <form action="">
                         <img src=https://cdn1.iconfinder.com/data/icons/ui-colored-3/100/UI__8-512.png alt="">
                         <label>TAREAS: </label>
-                        <input type="text" id="intTarea" maxlength="30" placeholder="Introduce una tarea">
+                        <input type="text" id="intTarea" maxlength="30" placeholder="Introduce una tarea"
+                            autocomplete="off">
                         <select id="intPriority">
-                            <option value="0" selected>Introduce una prioridad</option>
-                            <option value="1">Diaria</option>
-                            <option value="2">Mensual</option>
-                            <option value="3">Urgente</option>
+                            <option value="" selected>Introduce una prioridad</option>
+                            <option value="diaria">Diaria</option>
+                            <option value="mensual">Mensual</option>
+                            <option value="urgente">Urgente</option>
                         </select>
                         <input type="submit" value="Guardar" id="btnSave">
                     </form>
@@ -33,18 +35,21 @@
                 <div class="search">
                     <select id="searchPriority">
                         <option value="0" selected>Selecciona una prioridad</option>
-                        <option value="1">Diaria</option>
-                        <option value="2">Mensual</option>
-                        <option value="3">Urgente</option>
+                        <option value="diaria">Diaria</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="urgente">Urgente</option>
                     </select>
                     <input type="text" size="30" id="searchWord" placeholder="Tarea a buscar">
+                    <h3 id="numerotareas"></h3>
                 </div>
             </header>
             <main>
-                <article class="tasks">
-                    <h3 class="task">Estudiar Javascript</h3>
-                    <h3 class="remove">Eliminar</h3>
-                </article>
+                <section id="tasks">
+                    <!-- <article>
+                        <h3 class="task">Estudiar Javascript</h3>
+                        <h3 class="remove">Eliminar</h3>
+                        </article> -->
+                </section>
             </main>
 
             <footer>
@@ -52,7 +57,9 @@
             </footer>
         </div>
     </div>
-
+    <!-- primero cargo las funciones y luego los eventos, los 2° dependen de los 1° -->
+    <script src="./js/funciones.js"></script>
+    <script src="./js/eventos.js"></script>
 </body>
 
 </html>
