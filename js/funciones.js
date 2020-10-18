@@ -61,6 +61,15 @@ function filterTareasPorPrioridad(pListaTareas, pPrioridad) {
     return result;
 }
 
+function filterTareasPorPalabra(pListaTareas, pPalabraBuscar) {
+    const filterList = pListaTareas.filter(tarea => {
+        let titulo = tarea.titulo;
+        return titulo.toLowerCase().includes(pPalabraBuscar.toLowerCase());
+    })
+    return filterList
+
+}
+
 printTareas(listaTareas, seccionTareas);
 
 console.log(listaTareas);
