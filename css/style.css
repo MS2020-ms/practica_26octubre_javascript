@@ -28,6 +28,15 @@ img{
 .wrapper{
     display: flex;
 }
+.urgente{
+    background-color: lightpink;
+}
+.diaria{
+    background-color: lightblue;
+}
+.mensual{
+    background-color: lightgreen;
+}
 
 /* Inicio header */
 header img{
@@ -85,7 +94,7 @@ main article{
     line-height: 50px;
     border-bottom: 2px solid var(--color-secundario);
 }
-main article h3.task {
+main article h3{
     background-color: lightblue;
     width: 75%;
     padding-left: 15px;
@@ -95,13 +104,16 @@ main article .remove{
     background-color: orangered;
     color: white;
     width: 25%;
+    font-size: 1.1em;
     font-weight: 700;
     text-align:center;
     cursor: pointer;
+    border: 0px solid;
+    outline:none;
 }
 main article .remove:hover{
     width: 35%;
-    padding-left: 40px;
+    padding-left: 50px;
 }
 /* FIN main */
 

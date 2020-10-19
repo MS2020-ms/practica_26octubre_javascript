@@ -8,8 +8,51 @@ let selectBuscarPorPrioridad = document.querySelector('#searchPriority');
 let buscador = document.querySelector('#buscador');
 
 btnGuardar.addEventListener('click', recogerDatos);
-btnBorrar.addEventListener('click', eliminarElemento);
 buscador.addEventListener('input', recogerBusquedad);
+
+
+function printTareas(pListaTareas, pSection) {
+    if (pListaTareas.length != 0) {
+        pSection.innerHTML = "";
+        pListaTareas.forEach(tarea => {
+            printTarea(tarea, pSection);
+        })
+    } else {
+        //alert("Recuerde rellenar todos los campos!");
+    }
+}
+
+function printTarea(pTarea, pSection) {
+    numeroTareas.innerText = listaTareas.length + ` Tareas`;
+
+    let article = document.createElement('article');
+    let h3 = document.createElement('h3');
+    h3.className = pTarea.prioridad;
+    //h3.classList.add('task');
+
+    let contenidoh3 = document.createTextNode(`${pTarea.titulo}`);
+    h3.appendChild(contenidoh3);
+
+    //boton eliminar:
+    let input = document.createElement('input');
+    input.addEventListener('click', eliminarElemento);
+    input.classList.add('remove');
+    input.type = "reset";
+    input.value = "Eliminar";
+    input.dataset.id = pTarea.idTarea;
+
+    article.appendChild(h3);
+    article.appendChild(input);
+    pSection.appendChild(article);
+
+    /*if (pTarea.prioridad == 'urgente') {
+        h3.style.backgroundColor = 'lightpink';
+    } else if (pTarea.prioridad == 'mensual') {
+        h3.style.backgroundColor = 'lightgreen';
+    } else {
+        h3.style.backgroundColor = 'lightblue';
+    }*/
+}
 
 function recogerDatos(event) {
     event.preventDefault();
@@ -31,15 +74,21 @@ function recogerDatos(event) {
 function eliminarElemento(event) {
     //alert('Eliminando...');
     //console.log(event.target.parentNode);
+
     let articleToRemove = event.target.parentNode;
     articleToRemove.parentNode.removeChild(articleToRemove);
-    let idBorrar = event.target.idTarea;
-    console.log(idBorrar); //undefined?????
-    let posicion = listaTareas.findIndex(tarea => tarea.idTarea == idBorrar);
-    console.log(posicion); // -1 ?????
-    listaTareas.splice(posicion, 1);
-    console.log(listaTareas);
 
+    let idBorrar = event.target.dataset.id;
+    console.log(idBorrar);
+
+    let posicion = listaTareas.findIndex(tarea => tarea.idTarea == idBorrar);
+    console.log(posicion);
+
+    if (posicion !== -1) {
+        listaTareas.splice(posicion, 1);
+    }
+    console.log(listaTareas);
+    numeroTareas.innerText = listaTareas.length + ` Tareas`;
 }
 
 //filtrar por prioridad:
@@ -58,3 +107,6 @@ function recogerBusquedad(event) {
     let listaFiltrada = filterTareasPorPalabra(listaTareas, palabraBuscar);
     printTareas(listaFiltrada, seccionTareas);
 }
+
+printTareas(listaTareas, seccionTareas);
+console.log(listaTareas);
